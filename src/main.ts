@@ -1,12 +1,14 @@
-import { enableProdMode } from '@angular/core';
+import './polyfills';
+import { enableProdMode } from "@angular/core";
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-
+import { ChartsModule } from "@progress/kendo-angular-charts";
 import { AppModule } from './app/app.module';
-import { environment } from './environments/environment';
+enableProdMode();
+platformBrowserDynamic().bootstrapModule(AppModule, { preserveWhitespaces: true }).then(ref => {
+  // Ensure Angular destroys itself on hot reloads.
+  
 
-if (environment.production) {
-  enableProdMode();
-}
-
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+  // Otherise, log the boot error
+}).catch(err => console.error(err));
+const platform = platformBrowserDynamic();
+platform.bootstrapModule(AppModule);
