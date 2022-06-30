@@ -25,6 +25,7 @@ declare var $:any
     `
 })
 
+
 export class Test4Component {
   
   public data: number[] = [];
@@ -35,6 +36,7 @@ export class Test4Component {
   public step: number | undefined;
   public min = 0;
   public max = 20;
+  
 
   constructor() {
     
@@ -46,9 +48,7 @@ export class Test4Component {
     
     // set the navigator ticks and labels step to prevent the axis from becoming too cluttered
     this.navigatorStep = Math.floor(this.categories.length / 10);
-    $(document).ready(()=>{
-      alert("test")
-    })
+    $.get("https://localhost:7046/api/Makine", (veri: any) =>{ console.log(veri)})
   }
 
   public onSelectEnd(args: SelectEndEvent): void {
@@ -61,5 +61,6 @@ export class Test4Component {
 
     // set the main axis ticks and labels step to prevent the axis from becoming too cluttered
     this.step = Math.floor((this.max - this.min) / 10);
+    
   }
 }

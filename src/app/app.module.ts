@@ -27,10 +27,9 @@ import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { TestComponent } from './test/test.component';
 import { HttpHeaders, HttpClient, HttpClientModule } from "@angular/common/http";
 import { InputsModule } from '@progress/kendo-angular-inputs';
-import { Test3Component } from './test3/test3.component';
 
-import { NukonModule } from './nukon/nukon.module';
 import { Test4Module } from './test4/test4.module';
+import { Test3Module } from './test3/test3.module';
 
 
 
@@ -50,7 +49,8 @@ import { Test4Module } from './test4/test4.module';
         InputsModule,
         ButtonsModule,
         InputsModule,
-        Test4Module
+        Test4Module,
+        Test3Module
         
         
         
@@ -71,7 +71,7 @@ import { Test4Module } from './test4/test4.module';
         TileLayoutComponent,
         NukonComponent,
         TestComponent,
-        Test3Component,
+        
         
         
         
