@@ -67,10 +67,12 @@ export class LayoutComponent {
 export class LayoutComponent implements OnInit {
 
     constructor() {
-      this.ngOnInit
+      this.ngOnInit;
+      
      }
   
     ngOnInit(): void {
+       
     }
   @Input()
     public selectedItem!: string; 

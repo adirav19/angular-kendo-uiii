@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { LineStyle } from '@progress/kendo-angular-charts';
+declare var $:any
 
 @Component({
+  
     selector: 'app-nukon',
     template: `
       <kendo-dropdownlist [data]="['normal', 'step', 'smooth']" [(ngModel)]="style">
@@ -15,7 +17,12 @@ import { LineStyle } from '@progress/kendo-angular-charts';
         </kendo-chart-series>
       </kendo-chart>
     `
+    
 })
 export class NukonComponent {
     public style: LineStyle = 'normal';
+    
 }
+$(document).ready(()=>{
+  alert("test")
+})

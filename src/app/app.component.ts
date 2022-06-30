@@ -1,5 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { DrawerSelectEvent } from '@progress/kendo-angular-layout';
+declare var $: any
 @Component({
     selector: 'app-root',
     template: `
@@ -72,7 +73,9 @@ import { DrawerSelectEvent } from '@progress/kendo-angular-layout';
         }
     `]
 })
+
 export class AppComponent {
+    
     public selected = 'Avatar';
 
     public items: Array<{text: string, icon: string, selected?: boolean} | {separator: boolean}> = [
@@ -100,4 +103,5 @@ export class AppComponent {
     public onSelect(ev: DrawerSelectEvent): void {
         this.selected = ev.item.text;
     }
+    
 }

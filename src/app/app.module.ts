@@ -28,7 +28,9 @@ import { TestComponent } from './test/test.component';
 import { HttpHeaders, HttpClient, HttpClientModule } from "@angular/common/http";
 import { InputsModule } from '@progress/kendo-angular-inputs';
 import { Test3Component } from './test3/test3.component';
-import { Test4Component } from './test4/test4.component';
+
+import { NukonModule } from './nukon/nukon.module';
+import { Test4Module } from './test4/test4.module';
 
 
 
@@ -47,7 +49,9 @@ import { Test4Component } from './test4/test4.component';
         HttpClientModule,
         InputsModule,
         ButtonsModule,
-        InputsModule
+        InputsModule,
+        Test4Module
+        
         
         
 
@@ -68,7 +72,7 @@ import { Test4Component } from './test4/test4.component';
         NukonComponent,
         TestComponent,
         Test3Component,
-        Test4Component
+        
         
         
     ],

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SelectEndEvent } from '@progress/kendo-angular-charts';
+declare var $:any
 
 @Component({
   selector: 'app-test4',
@@ -23,7 +24,9 @@ import { SelectEndEvent } from '@progress/kendo-angular-charts';
         </kendo-chart>
     `
 })
+
 export class Test4Component {
+  
   public data: number[] = [];
   categories: number[] = [];
 
@@ -34,14 +37,18 @@ export class Test4Component {
   public max = 20;
 
   constructor() {
+    
     const startYear = 2000;
     for (let i = 0; i < 200; i++) {
       this.categories.push(startYear + i);
       this.data.push(Math.floor(Math.random() * 200));
     }
-
+    
     // set the navigator ticks and labels step to prevent the axis from becoming too cluttered
     this.navigatorStep = Math.floor(this.categories.length / 10);
+    $(document).ready(()=>{
+      alert("test")
+    })
   }
 
   public onSelectEnd(args: SelectEndEvent): void {

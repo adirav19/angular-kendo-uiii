@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NukonComponent } from './nukon.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -9,7 +10,13 @@ import { NukonComponent } from './nukon.component';
     
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule.forChild([
+      {path: "",component:NukonComponent}
+    ])
+  ],
+  exports:[
+    
   ]
 })
 export class NukonModule { }

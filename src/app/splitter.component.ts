@@ -30,7 +30,7 @@ import { Component } from '@angular/core';
             <kendo-splitter-pane size="200px">
                 <div class="pane-content">
                 <h3>Outer splitter / Middle pane</h3>
-                <app-test4></app-test4>
+                <!--<app-test4></app-test4> -->
                 </div>
             </kendo-splitter-pane>
             <kendo-splitter-pane [resizable]="false" size="100px">
