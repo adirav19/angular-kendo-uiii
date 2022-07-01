@@ -56,12 +56,7 @@ export class Test3Component {
   public isOverLegend = false;
   public  data: any[] = [
     { name: "2018", type: "line", data: [123, 276, 310, 212, 240, 156, 98] },
-    {
-      name: "2019",
-      type: "line",
-      dashType: "dashDot",
-      data: [165, 210, 287, 144, 190, 167, 212],
-    },
+    {name: "2019",type: "line",dashType: "dashDot",data: [165, 210, 287, 144, 190, 167, 212],},
     { name: "2020", type: "line", data: [56, 140, 195, 46, 123, 78, 95] },
   ];
 

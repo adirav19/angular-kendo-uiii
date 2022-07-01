@@ -31,12 +31,14 @@
               {
                 "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
                 
+                
               },
               "src/styles.scss"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "./node_modules/hammerjs/hammer.min.js"
             ]
           },
           "configurations": {
@@ -108,7 +110,9 @@
               },
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/hammerjs/hammer.min.js"
+            ]
           }
         }
       }

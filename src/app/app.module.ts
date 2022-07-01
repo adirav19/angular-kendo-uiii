@@ -31,51 +31,41 @@ import { InputsModule } from '@progress/kendo-angular-inputs';
 import { Test4Module } from './test4/test4.module';
 import { Test3Module } from './test3/test3.module';
 
-
-
-
+//I keep the new line
 @NgModule({
-    imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        ButtonsModule,
-        ScrollViewModule,
-        FormsModule,
-        CommonModule,
-        LayoutModule,
-        ChartsModule,
-        DropDownsModule,
-        HttpClientModule,
-        InputsModule,
-        ButtonsModule,
-        InputsModule,
-        Test4Module,
-        Test3Module
-        
-        
-        
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    ButtonsModule,
+    ScrollViewModule,
+    FormsModule,
+    CommonModule,
+    LayoutModule,
+    ChartsModule,
+    DropDownsModule,
+    HttpClientModule,
+    InputsModule,
+    ButtonsModule,
+    InputsModule,
+    Test4Module,
+    Test3Module,
 
-        
-       
-    ],
-    declarations: [
-        AppComponent,
-        ExpansionPanelComponent,
-        LayoutComponent,
-        PanelBarComponent,
-        ScrollViewCardComponent,
-        SplitterComponent,
-        StackLayoutComponent,
-        StepperComponent,
-        TabStripComponent,
-        TileLayoutComponent,
-        NukonComponent,
-        TestComponent,
-        
-        
-        
-        
-    ],
-    bootstrap: [AppComponent]
+  ],
+  declarations: [
+    AppComponent,
+    ExpansionPanelComponent,
+    LayoutComponent,
+    PanelBarComponent,
+    ScrollViewCardComponent,
+    SplitterComponent,
+    StackLayoutComponent,
+    StepperComponent,
+    TabStripComponent,
+    TileLayoutComponent,
+    NukonComponent,
+    TestComponent,
+  ],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+}

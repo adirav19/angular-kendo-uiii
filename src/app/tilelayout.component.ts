@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
         <kendo-tilelayout [columns]="2" autoFlow="none" [reorderable]="true">
             <kendo-tilelayout-item title="Tile 1">
                 <kendo-tilelayout-item-body>
-                    {{ firstTileContent }}
+                    <app-test4></app-test4>
                 </kendo-tilelayout-item-body>
             </kendo-tilelayout-item>
 
