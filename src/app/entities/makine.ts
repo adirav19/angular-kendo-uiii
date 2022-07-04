@@ -1,0 +1,29 @@
+export class makine {
+    IDw:number;
+    Vardiyaw:string;
+    BaslangicW:Date;
+    Bitisw:Date;
+    Gundegisimiw:boolean;
+    Grupw:number;
+    Gunduzw:boolean;
+    baslangic2:Date;
+    bitis2:Date;
+    mesai:Date;
+    seconds:number;
+    oran_kesim:number;
+    kesim_aktif_oran:number;
+    oran_aktif:number;
+    ID:number;
+    machine_nick:string;
+    Aktif:number;
+    aktif2:Date;
+    Erişimsiz:number;
+    erisimsiz2:Date;
+    Kesim:number;
+    kesim2:Date;
+    Duruş:number;
+    duruş2:Date;
+    Finiş:number;
+    finish2:Date;
+
+}

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+
 @Component({
     selector: 'panelbar-component',
     template: `
@@ -7,29 +8,7 @@ import { Component } from '@angular/core';
             <kendo-panelbar>
                 <kendo-panelbar-item title="My Teammates" [expanded]="true">
                     <ng-template kendoPanelBarContent>
-                        <div>
-                            <div class="teamMate">
-                                <img [src]="imageUrl('andrew')" alt="Andrew Fuller" />
-                                <span class="mate-info">
-                                    <h2>Andrew Fuller</h2>
-                                    <p>Team Lead</p>
-                                </span>
-                            </div>
-                            <div class="teamMate">
-                                <img [src]="imageUrl('nancy')" alt="Nancy Leverling" />
-                                <span class="mate-info">
-                                    <h2>Nancy Leverling</h2>
-                                    <p>Sales Associate</p>
-                                </span>
-                            </div>
-                            <div class="teamMate">
-                                <img [src]="imageUrl('robert')" alt="Robert King" />
-                                <span class="mate-info">
-                                    <h2>Robert King</h2>
-                                    <p>Business System Analyst</p>
-                                </span>
-                            </div>
-                        </div>
+                        
                     </ng-template>
                 </kendo-panelbar-item>
                 <kendo-panelbar-item title="Projects">
@@ -86,7 +65,7 @@ import { Component } from '@angular/core';
         vertical-align: top;
     }
     .panelbar-wrapper {
-        max-width: 300px;
+        max-width: 98% px;
         margin: 0 auto;
     }
     `]

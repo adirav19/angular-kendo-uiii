@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SelectEndEvent } from '@progress/kendo-angular-charts';
+import { makine } from '../entities/makine';
+import { HttpClientService } from '../services/http-client.service';
+import { OkumaServisi } from '../services/okumaservisi';
 declare var $:any
 
 @Component({
@@ -26,9 +29,9 @@ declare var $:any
 })
 
 
-export class Test4Component {
+export class Test4Component implements OnInit {
   
-  public data: number[] = [];
+  public data: any[] = [];
   categories: number[] = [];
 
   public transitions = false;
@@ -37,8 +40,8 @@ export class Test4Component {
   public min = 0;
   public max = 20;
   
-
-  constructor() {
+  
+  constructor(private http:HttpClientService, private okuma:OkumaServisi) {
     
     const startYear = 2000;
     for (let i = 0; i < 200; i++) {
@@ -48,7 +51,24 @@ export class Test4Component {
     
     // set the navigator ticks and labels step to prevent the axis from becoming too cluttered
     this.navigatorStep = Math.floor(this.categories.length / 10);
-    $.get("https://localhost:7046/api/Makine", (veri: any) =>{ console.log(veri)})
+   // $.get("https://localhost:7046/api/Makine", (veri: any) =>{ console.log(veri)})
+  }
+  dataSource = null;
+   async ngOnInit() {
+   /* this.httpClientService.get<makine[]>({
+      controller:"WeatherForecast"
+      //fullEndPoint:"https://localhost:7071/api/WeatherForecast"
+    }).subscribe(dat =>{
+      console.log(dat)
+    })*/
+    const allmakine:makine[] =
+    await this.okuma.read1(()=>console.log("test2"))
+     
+    this.dataSource = allmakine
+    console.log(this.dataSource)
+    
+    const start = this.dataSource.BaslangicW
+    
   }
 
   public onSelectEnd(args: SelectEndEvent): void {

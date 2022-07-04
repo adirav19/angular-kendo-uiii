@@ -1,4 +1,6 @@
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { HttpClientService } from './services/http-client.service';
+import { OkumaServisi } from './services/okumaservisi';
 
 @Component({
     selector: 'layout-component',
@@ -26,7 +28,7 @@ import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
         </div>
 
         <div class="content" id="PanelBar" *ngIf="selectedItem === 'PanelBar'">
-            <panelbar-component></panelbar-component>
+         <app-donut></app-donut>
         </div>
 
         <div class="content" id="Splitter" *ngIf="selectedItem === 'Splitter'">
@@ -71,7 +73,7 @@ export class LayoutComponent implements OnInit {
       
      }
   
-    ngOnInit(): void {
+    async ngOnInit() {
        
     }
   @Input()

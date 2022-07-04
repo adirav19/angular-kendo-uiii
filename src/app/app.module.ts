@@ -30,6 +30,8 @@ import { InputsModule } from '@progress/kendo-angular-inputs';
 
 import { Test4Module } from './test4/test4.module';
 import { Test3Module } from './test3/test3.module';
+import { DonutModule } from './donut/donut.module';
+import { SeriesLabelsContentArgs } from '@progress/kendo-angular-charts';
 
 //I keep the new line
 @NgModule({
@@ -49,6 +51,8 @@ import { Test3Module } from './test3/test3.module';
     InputsModule,
     Test4Module,
     Test3Module,
+    DonutModule
+    
 
   ],
   declarations: [
@@ -64,8 +68,19 @@ import { Test3Module } from './test3/test3.module';
     TileLayoutComponent,
     NukonComponent,
     TestComponent,
+    
+    
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers:[
+    {
+      provide:"baseUrl",
+      useValue:"https://localhost:7046/api",
+      multi: true
+      //lişnk değişiminin kolay sağlanabilemsi
+      //adına burda tanımladık.
+    }
+   ]
 })
 export class AppModule {
 }

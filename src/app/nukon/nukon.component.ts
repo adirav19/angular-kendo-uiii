@@ -23,6 +23,3 @@ export class NukonComponent {
     public style: LineStyle = 'normal';
     
 }
-$(document).ready(()=>{
-  alert("test")
-})
