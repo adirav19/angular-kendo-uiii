@@ -25,7 +25,8 @@ import { ChartsModule } from '@progress/kendo-angular-charts';
 import 'hammerjs';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { TestComponent } from './test/test.component';
-import { HttpHeaders, HttpClient, HttpClientModule } from "@angular/common/http";
+import { HttpHeaders, HttpClient, HttpClientModule } from "@angular/common/http";//bu modul direk 
+//yazılmalıdır ng add ile falan bulunamaz bunu kopyala yapıştır sadece.
 import { InputsModule } from '@progress/kendo-angular-inputs';
 
 import { Test4Module } from './test4/test4.module';
