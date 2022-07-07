@@ -4,6 +4,7 @@ import { mockData, CovidData } from "./covid-data";
 @Component({
   selector: "app-test",
   template: `
+    <div>app-test</div>
     <div class="example-config">
       <div class="k-form-field">
         <input

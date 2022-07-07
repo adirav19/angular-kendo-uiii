@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SelectEndEvent } from '@progress/kendo-angular-charts';
 import { makine } from '../entities/makine';
+import { suretut } from '../entities/suretut';
 import { HttpClientService } from '../services/http-client.service';
 import { OkumaServisi } from '../services/okumaservisi';
 declare var $:any
@@ -8,6 +9,7 @@ declare var $:any
 @Component({
   selector: 'app-test4',
   template: `
+  <div>app-test4</div>
         <kendo-chart (selectEnd)="onSelectEnd($event)" [transitions]="transitions"
             [categoryAxis]="[{
               categories: categories, min: min, max: max,
@@ -19,9 +21,9 @@ declare var $:any
             [valueAxis]="[{}, { name: 'valueNavigatorAxis', pane: 'navigator' }]"
             [panes]="[{}, { name: 'navigator', height: 100 }]">
             <kendo-chart-series>
-                <kendo-chart-series-item type="line" style="smooth" [data]="data" [markers]="{ visible: false }">
+                <kendo-chart-series-item type="line" style="smooth" [data]="this.dataSource" field = "aktif" [markers]="{ visible: false }">
                 </kendo-chart-series-item>
-                <kendo-chart-series-item type="area" style="smooth" [data]="data" axis="valueNavigatorAxis" categoryAxis="navigatorAxis">
+                <kendo-chart-series-item type="area" style="smooth" [data]="this.dataSource" field = "aktif" axis="valueNavigatorAxis" categoryAxis="navigatorAxis">
                 </kendo-chart-series-item>
             </kendo-chart-series>
         </kendo-chart>
@@ -53,7 +55,7 @@ export class Test4Component implements OnInit {
     this.navigatorStep = Math.floor(this.categories.length / 10);
    // $.get("https://localhost:7046/api/Makine", (veri: any) =>{ console.log(veri)})
   }
-  dataSource = null;
+  dataSource:suretut[] = [];
    async ngOnInit() {
    /* this.httpClientService.get<makine[]>({
       controller:"WeatherForecast"
@@ -61,13 +63,15 @@ export class Test4Component implements OnInit {
     }).subscribe(dat =>{
       console.log(dat)
     })*/
-    const allmakine:makine[] =
-    await this.okuma.read1(()=>console.log("test2"))
-     
-    this.dataSource = allmakine
-    console.log(this.dataSource)
+    const allmakine:suretut[] =
+    await this.okuma.read2(1)
+    const makines:suretut[] = allmakine
     
-    const start = this.dataSource.BaslangicW
+    this.dataSource = makines
+    console.log("test2")
+    
+    
+  
     
   }
 

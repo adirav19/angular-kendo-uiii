@@ -2,6 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { firstValueFrom, Observable } from 'rxjs';
 import { makine } from '../entities/makine';
+import { suretut } from '../entities/suretut';
 import { HttpClientService } from './http-client.service';
 
 
@@ -19,7 +20,22 @@ export class OkumaServisi{
             successCallBack();
             return mak1;
         }
+
+
+
+        async read2(id?:number): Promise<suretut[]> {
+          const getObservable: Observable<suretut[]> = this.httpClientService.get<suretut[]>({
+              controller: "Makine"
+
+
+          },id);
+        
+              const mak2: suretut[] = await firstValueFrom(getObservable);
+              
+              return mak2;
+          }
     }
+    
 
 
 

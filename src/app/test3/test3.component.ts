@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from "@angular/core";
+import { Component, OnInit, ViewEncapsulation } from "@angular/core";
 import { LegendItemVisualArgs, Series } from "@progress/kendo-angular-charts";
 import {
   Element,
@@ -8,11 +8,15 @@ import {
   Rect as RectShape,
   Text,
 } from "@progress/kendo-drawing";
+import { suretut } from "../entities/suretut";
+import { HttpClientService } from "../services/http-client.service";
+import { OkumaServisi } from "../services/okumaservisi";
 const { Point, Rect, Size } = geometry;
 
 @Component({
   selector: "app-test3",
   template: `
+  <div>app-test3</div>
     <kendo-chart
       [ngClass]="{ 'hand-cursor': isOverLegend }"
       (legendItemHover)="isOverLegend = true"
@@ -26,13 +30,15 @@ const { Point, Rect, Size } = geometry;
         >
         </kendo-chart-category-axis-item>
       </kendo-chart-category-axis>
+     
       <kendo-chart-series>
         <kendo-chart-series-item
           *ngFor="let series of data"
           [type]="series.type"
           [name]="series.name"
           [dashType]="series.dashType"
-          [data]="series.data"
+          [data]="this.dataSource"
+          field = "durus"
         >
         </kendo-chart-series-item>
       </kendo-chart-series>
@@ -52,7 +58,27 @@ const { Point, Rect, Size } = geometry;
   ],
 })
 
-export class Test3Component {
+export class Test3Component implements OnInit {
+  constructor(private httpclient:HttpClientService, private okuma:OkumaServisi){}
+  dataSource:suretut[] = [];
+   async ngOnInit() {
+   /* this.httpClientService.get<makine[]>({
+      controller:"WeatherForecast"
+      //fullEndPoint:"https://localhost:7071/api/WeatherForecast"
+    }).subscribe(dat =>{
+      console.log(dat)
+    })*/
+    const allmakine:suretut[] =
+    await this.okuma.read2(1)
+    const makines:suretut[] = allmakine
+    
+    this.dataSource = makines
+    console.log("test2")
+    
+    
+  
+    
+  }
   public isOverLegend = false;
   public  data: any[] = [
     { name: "2018", type: "line", data: [123, 276, 310, 212, 240, 156, 98] },

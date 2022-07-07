@@ -33,6 +33,13 @@ import { Test4Module } from './test4/test4.module';
 import { Test3Module } from './test3/test3.module';
 import { DonutModule } from './donut/donut.module';
 import { SeriesLabelsContentArgs } from '@progress/kendo-angular-charts';
+import { Test5Module } from './test5/test5.module';
+import { Test6Component } from './test6/test6.component';
+import { Test6Module } from './test6/test6.module';
+import { Test7Module } from './test7/test7.module';
+import { Test8Module } from './test8/test8.module';
+import { Test9Component } from './test9/test9.component';
+import { Test9Module } from './test9/test9.module';
 
 //I keep the new line
 @NgModule({
@@ -52,7 +59,13 @@ import { SeriesLabelsContentArgs } from '@progress/kendo-angular-charts';
     InputsModule,
     Test4Module,
     Test3Module,
-    DonutModule
+    DonutModule,
+    Test5Module,
+    Test6Module,
+    Test7Module,
+    Test8Module,
+    Test9Module
+
     
 
   ],

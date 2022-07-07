@@ -7,21 +7,22 @@ import { OkumaServisi } from '../services/okumaservisi';
 
 @Component({
   selector: 'app-donut',
+  //templateUrl: './donut.component.html'
   template:
   `
   <kendo-chart>
-    <kendo-chart-series>
-      <kendo-chart-series-item
-          type="donut" [data]="this.dataSource"
-          categoryField="machineNick" field="duruş">
-        <kendo-chart-series-item-labels
-          [content]="labelContent"
-          color="#fff" background="none">
-        </kendo-chart-series-item-labels>
-      </kendo-chart-series-item>
-    </kendo-chart-series>
-    <kendo-chart-legend [visible]="false"></kendo-chart-legend>
-  </kendo-chart>
+  <kendo-chart-series>
+    <kendo-chart-series-item
+        type="donut" [data]="this.dataSource"
+         field="duruş">
+      <kendo-chart-series-item-labels
+        [content]="labelContent"
+        color="#fff" background="none">
+      </kendo-chart-series-item-labels>
+    </kendo-chart-series-item>
+  </kendo-chart-series>
+  <kendo-chart-legend [visible]="false"></kendo-chart-legend>
+</kendo-chart>
   `
 
   

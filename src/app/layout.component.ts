@@ -36,20 +36,27 @@ import { OkumaServisi } from './services/okumaservisi';
         </div>
 
         <div class="content" id="StackLayout" *ngIf="selectedItem === 'StackLayout'">
+        <app-test5></app-test5>
             <stacklayout-component></stacklayout-component>
+            
         </div>
 
         <div class="content" id="Stepper" *ngIf="selectedItem === 'Stepper'">
+            <app-test6></app-test6>
             <stepper-component></stepper-component>
         </div>
 
         <div class="content" id="TabStrip" *ngIf="selectedItem === 'TabStrip'">
+        <app-test7></app-test7>
             <tabstrip-component></tabstrip-component>
         </div>
         
         <div class="content" id="TileLayout" *ngIf="selectedItem === 'TileLayout'">
-            <tilelayout-component></tilelayout-component>
+        <app-test8></app-test8>
+        <app-test9></app-test9>
+         <!--   <tilelayout-component></tilelayout-component> -->
         </div>
+        
     `,
     encapsulation: ViewEncapsulation.None,
     styles: [`
