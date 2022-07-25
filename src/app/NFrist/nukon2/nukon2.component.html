@@ -1,0 +1,57 @@
+
+    <kendo-chart [categoryAxis]="{ categories: categories }">
+        <kendo-chart-title
+          text="tarih"
+        ></kendo-chart-title>
+        <kendo-chart-legend
+          position="bottom"
+          orientation="horizontal"
+        ></kendo-chart-legend>
+        <kendo-chart-tooltip format="{0}%"></kendo-chart-tooltip>
+        <kendo-chart-series>
+          <kendo-chart-series-item
+            *ngFor="let item of series_aktif"
+            type="line"
+
+            [data]="this.dataSource"
+            [name]="item.name"
+            field = "aktif"
+            categoryField = "tarih"
+          >
+          </kendo-chart-series-item>
+    
+          <kendo-chart-series-item
+            *ngFor="let item of series_kesim"
+            type="line"
+
+            [data]="this.dataSource"
+            [name]="item.name"
+            field = "kesim"
+            categoryField = "tarih"
+          >
+          </kendo-chart-series-item>
+    
+          <kendo-chart-series-item
+            *ngFor="let item of series_durus"
+            type="line"
+
+            [data]="this.dataSource"
+            [name]="item.name"
+            field = "durus"
+            categoryField = "tarih"
+          >
+          </kendo-chart-series-item>
+    
+          <kendo-chart-series-item
+            *ngFor="let item of series_erisimsiz"
+            type="line"
+ 
+            [data]="this.dataSource"
+            [name]="item.name"
+            field = "erisimsiz"
+            categoryField = "tarih"
+          >
+          </kendo-chart-series-item>
+    
+        </kendo-chart-series>
+      </kendo-chart>

@@ -9,20 +9,20 @@ import { Component } from '@angular/core';
                 <kendo-splitter-pane [collapsible]="true" size="30%">
                     <div class="pane-content">
                     <h3>Inner splitter / left pane</h3>
-                    <app-test></app-test>
+                    daha güzel şeyler olabilr
                     </div>
                 </kendo-splitter-pane>
                 <kendo-splitter-pane>
                     <div class="pane-content">
                     <h3>Inner splitter / center pane</h3>
-                    <app-test3></app-test3>
+                    daha güzel şeyler olabilir
                     </div>
                 </kendo-splitter-pane>
                 <kendo-splitter-pane [collapsible]="true" size="30%">
                     <div class="pane-content">
                     <h3>Inner splitter / right pane</h3>
                     
-                    <app-nukon></app-nukon>
+                    daha güzel şeyler olablr
                     </div>
                 </kendo-splitter-pane>
                 </kendo-splitter>
@@ -30,7 +30,7 @@ import { Component } from '@angular/core';
             <kendo-splitter-pane size="200px">
                 <div class="pane-content">
                 <h3>Outer splitter / Middle pane</h3>
-                <app-test4></app-test4>
+                daha güzel şeyler olabilir
                 </div>
             </kendo-splitter-pane>
             <kendo-splitter-pane [resizable]="false" size="100px">

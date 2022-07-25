@@ -1,0 +1,42 @@
+<kendo-chart>
+    <kendo-chart-series>
+      <!--kesim-->
+      <kendo-chart-series-item *ngFor="let item of series_kesim"
+        type="bar"
+        [stack]="{ group: 'a' }"
+        [data]="[dataKesim]"
+        [name]="item.name"
+      >
+      </kendo-chart-series-item>
+      <!--aktif-->
+      <kendo-chart-series-item *ngFor="let item of series_durus"
+        type="bar"
+        [data]="[dataDurus]"
+        [stack]="{ group: 'a' }"
+        [name]="item.name"
+      >
+      </kendo-chart-series-item>
+      <!--durus-->
+      <kendo-chart-series-item *ngFor="let item of series_aktif"
+        type="bar"
+        [data]="[dataAktif ]"
+        [stack]="{ group: 'a' }"
+        [name]="item.name"
+      >
+    </kendo-chart-series-item>
+      <kendo-chart-series-item *ngFor="let item of series_erisimsiz"
+        type="bar"
+        [data]="[dataErisimsiz ]"
+        [stack]="{ group: 'a' }"
+        [name]="item.name"
+      >
+      </kendo-chart-series-item>
+      <kendo-chart-series-item *ngFor="let item of series_finish"
+        type="bar"
+        [data]="[dataFinish]"
+        [stack]="{ group: 'a' }"
+        [name]="item.name"
+      >
+      </kendo-chart-series-item>
+    </kendo-chart-series>
+  </kendo-chart>

@@ -6,50 +6,62 @@ import { OkumaServisi } from '../services/okumaservisi';
 @Component({
     selector: 'app-test5',
     template: `
-    <div>app-test5</div>
-      <kendo-chart>
-        <kendo-chart-title text="Units sold"></kendo-chart-title>
+           <div class="expansionpanel-wrapper">
+            <kendo-expansionpanel title="Nukon 4KW 3M" subtitle="South America">
+                <div class="content">
+                    <app-nukont1></app-nukont1>
+                </div>
+            </kendo-expansionpanel>
+            <kendo-expansionpanel title="Nukon 6KW 6M" subtitle="South America">
+                <div class="content">
+                    <app-nukont2></app-nukont2>
+                </div>
+            </kendo-expansionpanel>
+            <kendo-expansionpanel title="Nukon 12 KW 6M" subtitle="South America">
+                <div class="content">
+                    <app-nukont3></app-nukont3>
+                </div>
+            </kendo-expansionpanel>
+            <kendo-expansionpanel title="Nukon 12 KW 3M" subtitle="South America">
+                <div class="content">
+                    <app-nukont4></app-nukont4>
+                </div>
+            </kendo-expansionpanel>
+            <kendo-expansionpanel title="Nukon Rex 4KW" subtitle="South America">
+                <div class="content">
+                    <app-nukont5></app-nukont5>
+                </div>
+            </kendo-expansionpanel>
+            <kendo-expansionpanel title="Nukon 8KW Extreme 5 Eksen" subtitle="South America">
+                <div class="content">
+                    <app-nukont6></app-nukont6>
+                </div>
+            </kendo-expansionpanel>
+        </div>
+    `,
+    styles: [`
+        .content {
+            
+        }
 
-        <kendo-chart-category-axis>
-            <kendo-chart-category-axis-item
-                [categories]="this.dataSource"
-                [title]="{ text: 'Months' }">
-            </kendo-chart-category-axis-item>
-        </kendo-chart-category-axis>
+        .image-container {
+            height: 250px;
+            margin-right: 20px;
+        }
 
-        <kendo-chart-series-defaults [highlight]="{ inactiveOpacity: 0.1 }">
-        </kendo-chart-series-defaults>
+        img {
+            height: 100%;
+        }
 
-        <kendo-chart-series>
-          <kendo-chart-series-item type="area" [data]="this.dataSource" field = "aktif" categoryField="tarih">
-          </kendo-chart-series-item>
-          <kendo-chart-series-item type="area" [data]="this.dataSource" field = "durus" categoryField="tarih">
-          </kendo-chart-series-item>
-          <kendo-chart-series-item type="area" [data]="this.dataSource" field = "kesim" categoryField="tarih">
-          </kendo-chart-series-item>
-        </kendo-chart-series>
-      </kendo-chart>
-    `
+        .content-text {
+            display: block;
+            text-align: justify;
+        }
+
+        .expansionpanel-wrapper {
+            max-width: 98%;
+            margin: 0 auto;
+        }
+    `]
   })
-  export class Test5Component implements OnInit {
-    constructor(private httpclient:HttpClientService, private okuma: OkumaServisi){}
-    dataSource:suretut[] = [];
-   async ngOnInit() {
-   /* this.httpClientService.get<makine[]>({
-      controller:"WeatherForecast"
-      //fullEndPoint:"https://localhost:7071/api/WeatherForecast"
-    }).subscribe(dat =>{
-      console.log(dat)
-    })*/
-    const allmakine:suretut[] =
-    await this.okuma.read2(1)
-    const makines:suretut[] = allmakine
-    
-    this.dataSource = makines
-    console.log("test2")
-    
-    
-  
-    
-  }
-   }
+  export class Test5Component {}

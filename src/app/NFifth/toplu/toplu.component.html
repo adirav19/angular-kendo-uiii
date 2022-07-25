@@ -1,0 +1,42 @@
+<kendo-chart>
+    <kendo-chart-series>
+      <!--kesim-->
+      <kendo-chart-series-item *ngFor="let item of series_kesim"
+        type="bar"
+        [stack]="{ group: 'a' }"
+        [data]="[dataKesim,data2Kesim,data3Kesim,data4Kesim,data5Kesim,data6Kesim]"
+        [name]="item.name"
+      >
+      </kendo-chart-series-item>
+      <!--aktif-->
+      <kendo-chart-series-item *ngFor="let item of series_durus"
+        type="bar"
+        [data]="[dataDurus,data2Durus,data3Durus,data4Durus,data5Durus,data6Durus]"
+        [stack]="{ group: 'a' }"
+        [name]="item.name"
+      >
+      </kendo-chart-series-item>
+      <!--durus-->
+      <kendo-chart-series-item *ngFor="let item of series_aktif"
+        type="bar"
+        [data]="[dataAktif,data2Aktif,data3Aktif,data4Aktif,data5Aktif,data6Aktif ]"
+        [stack]="{ group: 'a' }"
+        [name]="item.name"
+      >
+    </kendo-chart-series-item>
+      <kendo-chart-series-item *ngFor="let item of series_erisimsiz"
+        type="bar"
+        [data]="[dataErisimsiz,data2Erisimsiz,data3Erisimsiz,data4Erisimsiz,data5Erisimsiz,data6Erisimsiz ]"
+        [stack]="{ group: 'a' }"
+        [name]="item.name"
+      >
+      </kendo-chart-series-item>
+      <kendo-chart-series-item *ngFor="let item of series_finish"
+        type="bar"
+        [data]="[dataFinish,data2Finish,data3Finish,data4Finish,data5Finish,data6Finish]"
+        [stack]="{ group: 'a' }"
+        [name]="item.name"
+      >
+      </kendo-chart-series-item>
+    </kendo-chart-series>
+  </kendo-chart>

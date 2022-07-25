@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { anyChanged } from '@progress/kendo-angular-common';
 import { firstValueFrom, Observable } from 'rxjs';
 import { makine } from '../entities/makine';
 import { suretut } from '../entities/suretut';
@@ -34,6 +35,19 @@ export class OkumaServisi{
               
               return mak2;
           }
+          async read3(id?:number): Promise<suretut[]> {
+            const getObservable: Observable<suretut[]> = this.httpClientService.get<suretut[]>({
+                controller: "MakineLastKesim"
+  
+  
+            },id);
+          
+                const mak2: suretut[] = await firstValueFrom(getObservable);
+                
+                
+                
+                return mak2;
+            }
     }
     
 

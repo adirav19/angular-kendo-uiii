@@ -1,0 +1,20 @@
+
+
+        <kendo-chart (selectEnd)="onSelectEnd($event)" [transitions]="transitions"
+        [categoryAxis]="[{
+          categories: categories, min: min, max: max,
+          labels: { step: step }, majorGridLines: { step: step }, majorTicks: { step: step }
+        }, {
+          categories: categories, name: 'navigatorAxis',
+          labels: { step: navigatorStep }, majorGridLines: { step: navigatorStep }, majorTicks: { step: navigatorStep },
+          pane: 'navigator', select: { from: min, to: max } }]"
+        [valueAxis]="[{}, { name: 'valueNavigatorAxis', pane: 'navigator' }]"
+        [panes]="[{}, { name: 'navigator', height: 100 }]">
+        <kendo-chart-series>
+            <kendo-chart-series-item type="line"  [data]="this.dataSource" field = "kesim" categoryField="tarih" [markers]="{ visible: false }">
+            </kendo-chart-series-item>
+            <kendo-chart-series-item type="area"  [data]="this.dataSource" field = "kesim" categoryField = "tarih" axis="valueNavigatorAxis" categoryAxis="navigatorAxis">
+            </kendo-chart-series-item>
+        </kendo-chart-series>
+        
+    </kendo-chart>

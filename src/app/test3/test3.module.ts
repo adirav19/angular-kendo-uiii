@@ -8,16 +8,16 @@ import { ChartsModule } from '@progress/kendo-angular-charts';
 
 @NgModule({
   declarations: [
-    Test3Component
+
   ],
   imports: [
 
     CommonModule,
-    ChartsModule,
+
     RouterModule.forChild([
-      {path: "",component:Test3Component}
+      {path: "",component:Test3Module}
     ])
   ],
-  exports:[Test3Component]
+  exports:[]
 })
 export class Test3Module { }

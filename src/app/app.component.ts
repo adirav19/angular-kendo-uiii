@@ -6,9 +6,11 @@ declare var $: any
     template: `
     <div class="wrapper">
         <div class="custom-toolbar">
+        
             <button kendoButton icon="layout" fillMode="flat" (click)="drawer.toggle()">
             <span class="mail-box">Drawer component</span>
         </button>
+        
         </div>
         <kendo-drawer-container class="customClass">
             <kendo-drawer

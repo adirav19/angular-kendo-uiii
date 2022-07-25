@@ -11,50 +11,59 @@ import { OkumaServisi } from './services/okumaservisi';
 
         <div class="content" id="Avatar" *ngIf="selectedItem === 'Avatar'">
            
-            <app-test></app-test>
+           <!-- <app-test></app-test> klasik kullanmaya gerek yok -->
+           <!--<app-test6></app-test6>-->
+           <app-test></app-test>
+
         </div>
 
         <div class="content" id="Card" *ngIf="selectedItem === 'Card'">
-            <app-nukon></app-nukon>
+           <!-- <app-nukon></app-nukon> elektrik işinde kullanılacak -->
+           
+        <app-test3></app-test3>
+        
+        </div>
+        <div class="content" id="PanelBar" *ngIf="selectedItem === 'PanelBar'">
+            <app-test5></app-test5>
         </div>
 
         <div class="content" id="ExpansionPanel" *ngIf="selectedItem === 'ExpansionPanel'">
-            <expansionpanel-component></expansionpanel-component>
-            <app-test3></app-test3>
+        <app-test6></app-test6>
+          
         </div>
 
         <div class="content" id="GridLayout" *ngIf="selectedItem === 'GridLayout'">
-            <app-test4></app-test4>
+          <app-test7></app-test7>
         </div>
 
-        <div class="content" id="PanelBar" *ngIf="selectedItem === 'PanelBar'">
-         <app-donut></app-donut>
-        </div>
+        
 
         <div class="content" id="Splitter" *ngIf="selectedItem === 'Splitter'">
-            <splitter-component></splitter-component>
+            
         </div>
 
         <div class="content" id="StackLayout" *ngIf="selectedItem === 'StackLayout'">
-        <app-test5></app-test5>
+       <!-- <app-test5></app-test5> kullanım alanı sınırlı  -->
             <stacklayout-component></stacklayout-component>
             
         </div>
 
         <div class="content" id="Stepper" *ngIf="selectedItem === 'Stepper'">
-            <app-test6></app-test6>
+            <!-- <app-test6></app-test6> işlevini bilmiyoruz şuan için gereksiz-->
             <stepper-component></stepper-component>
         </div>
 
         <div class="content" id="TabStrip" *ngIf="selectedItem === 'TabStrip'">
-        <app-test7></app-test7>
+       <!-- <app-test7></app-test7> -->
             <tabstrip-component></tabstrip-component>
         </div>
         
         <div class="content" id="TileLayout" *ngIf="selectedItem === 'TileLayout'">
-        <app-test8></app-test8>
+       <!-- <app-test8></app-test8> -->
         <app-test9></app-test9>
+        <app-test11></app-test11>
          <!--   <tilelayout-component></tilelayout-component> -->
+         
         </div>
         
     `,

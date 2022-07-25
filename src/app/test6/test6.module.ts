@@ -1,18 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Test6Component } from './test6.component';
+import { RouterModule } from '@angular/router';
 import { ChartsModule } from '@progress/kendo-angular-charts';
+
+
 
 
 
 @NgModule({
   declarations: [
-    Test6Component
+    
   ],
   imports: [
     CommonModule,
-    ChartsModule
+    ChartsModule,
+    RouterModule.forChild([
+      {path: "",component:Test6Module}
+    ]),
   ],
-  exports:[Test6Component]
+  exports:[]
 })
 export class Test6Module { }
