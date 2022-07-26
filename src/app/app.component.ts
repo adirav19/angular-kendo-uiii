@@ -81,7 +81,7 @@ export class AppComponent {
     public selected = 'Avatar';
 
     public items: Array<{text: string, icon: string, selected?: boolean} | {separator: boolean}> = [
-        { text: 'Avatar', icon: 'k-i-user', selected: true },
+        { text: 'Nukon', icon: 'k-i-user', selected: true },
         { separator: true },
         { text: 'Card', icon: 'k-i-image' },
         { separator: true },
@@ -100,7 +100,7 @@ export class AppComponent {
         { text: 'TabStrip', icon: 'k-i-thumbnails-up' },
         { separator: true },
         { text: 'TileLayout', icon: 'k-i-grid' }
-    ];
+    ]; 
 
     public onSelect(ev: DrawerSelectEvent): void {
         this.selected = ev.item.text;

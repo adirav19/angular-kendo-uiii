@@ -10,7 +10,10 @@ import { OkumaServisi } from 'src/app/services/okumaservisi';
 })
 export class Nukonfif1Component implements OnInit {
     
-  constructor(private httpclient:HttpClientService, private okuma: OkumaServisi){}
+  constructor(private httpclient:HttpClientService, private okuma: OkumaServisi){
+    
+
+  }
     dataKesim= null;
     dataDurus = null;
     dataAktif = null;

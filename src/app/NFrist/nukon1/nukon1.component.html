@@ -16,7 +16,7 @@
         [data]="this.dataSource"
         [name]="item.name"
         field = "aktif"
-        categoryField = "tarih"
+        categoryField = "saat"
       >
       </kendo-chart-series-item>
 
@@ -27,7 +27,7 @@
         [data]="this.dataSource"
         [name]="item.name"
         field = "kesim"
-        categoryField = "tarih"
+        categoryField = "saat"
       >
       </kendo-chart-series-item>
 
@@ -38,7 +38,7 @@
         [data]="this.dataSource"
         [name]="item.name"
         field = "durus"
-        categoryField = "tarih"
+        categoryField = "saat"
       >
       </kendo-chart-series-item>
 
@@ -49,9 +49,45 @@
         [data]="this.dataSource"
         [name]="item.name"
         field = "erisimsiz"
-        categoryField = "tarih"
+        categoryField = "saat"
       >
       </kendo-chart-series-item>
 
     </kendo-chart-series>
+    
   </kendo-chart>
+
+
+<div class="row">
+  <div class="col-6">
+  <kendo-chart>
+    <ng-template kendoChartDonutCenterTemplate>
+      <h4> % {{this.Valuer}}</h4>
+      <br>
+      <br>
+    </ng-template>
+    <kendo-chart-tooltip format="{0}%"></kendo-chart-tooltip>
+    <kendo-chart-series>
+
+      <kendo-chart-series-item
+        type="donut"
+        [data]="this.donuticin"
+        
+
+        field="share"
+      >
+        <kendo-chart-series-item-labels
+          [content]="labelContent"
+          
+          color="#fff"
+          background="none"
+          
+        >
+        
+        </kendo-chart-series-item-labels>
+      </kendo-chart-series-item>
+    </kendo-chart-series>
+    <kendo-chart-legend [visible]="false"></kendo-chart-legend>
+  </kendo-chart>
+</div>
+</div>

@@ -93,6 +93,6 @@ export class LayoutComponent implements OnInit {
        
     }
   @Input()
-    public selectedItem!: string; 
+    public selectedItem: string; 
     
   }
