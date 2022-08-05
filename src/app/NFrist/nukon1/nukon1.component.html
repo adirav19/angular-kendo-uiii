@@ -1,7 +1,7 @@
 
     <kendo-chart [categoryAxis]="{ categories: categories }">
     <kendo-chart-title
-      text="tarih"
+      text="NUKON 4 KW 3M"
     ></kendo-chart-title>
     <kendo-chart-legend
       position="bottom"
@@ -15,6 +15,7 @@
 
         [data]="this.dataSource"
         [name]="item.name"
+        color="#212529"
         field = "aktif"
         categoryField = "saat"
       >
@@ -26,6 +27,7 @@
 
         [data]="this.dataSource"
         [name]="item.name"
+        color="#198754"
         field = "kesim"
         categoryField = "saat"
       >
@@ -38,6 +40,7 @@
         [data]="this.dataSource"
         [name]="item.name"
         field = "durus"
+        color="#6c757d"
         categoryField = "saat"
       >
       </kendo-chart-series-item>
@@ -52,42 +55,149 @@
         categoryField = "saat"
       >
       </kendo-chart-series-item>
+      <kendo-chart-series-item
+        *ngFor="let item of series_finish"
+        type="line"
+
+        [data]="this.dataSource"
+        [name]="item.name"
+        field = "finish"
+        color="#ffc107"
+        categoryField = "saat"
+      >
+      </kendo-chart-series-item>
 
     </kendo-chart-series>
     
   </kendo-chart>
 
 
-<div class="row">
-  <div class="col-6">
-  <kendo-chart>
-    <ng-template kendoChartDonutCenterTemplate>
-      <h4> % {{this.Valuer}}</h4>
-      <br>
-      <br>
-    </ng-template>
-    <kendo-chart-tooltip format="{0}%"></kendo-chart-tooltip>
-    <kendo-chart-series>
-
-      <kendo-chart-series-item
-        type="donut"
-        [data]="this.donuticin"
-        
-
-        field="share"
-      >
-        <kendo-chart-series-item-labels
-          [content]="labelContent"
+  <div class="row">
+    <div class="col-6">
+    <kendo-chart>
+      <ng-template kendoChartDonutCenterTemplate>
+        <h4> % {{this.Valuer}}</h4>
+        <br>
+        <br>
+      </ng-template>
+      <kendo-chart-tooltip format="{0}%"></kendo-chart-tooltip>
+      <kendo-chart-series>
+  
+        <kendo-chart-series-item
+          type="donut"
+          [data]="this.donuticin"
           
-          color="#fff"
-          background="none"
-          
+  
+          field="share"
         >
-        
-        </kendo-chart-series-item-labels>
-      </kendo-chart-series-item>
-    </kendo-chart-series>
-    <kendo-chart-legend [visible]="false"></kendo-chart-legend>
-  </kendo-chart>
-</div>
-</div>
+          <kendo-chart-series-item-labels
+            [content]="labelContent"
+            
+            color="#fff"
+            background="none"
+            
+          >
+          
+          </kendo-chart-series-item-labels>
+        </kendo-chart-series-item>
+      </kendo-chart-series>
+      <kendo-chart-legend [visible]="false"></kendo-chart-legend>
+    </kendo-chart>
+  </div>
+  <div class="col-6">
+    <kendo-chart style="height: 120px;">
+      <kendo-chart-title text="Temperature [&deg;C]"></kendo-chart-title>
+      <kendo-chart-series>
+        <kendo-chart-series-item type="bullet" [data]="" color="#fff">
+        </kendo-chart-series-item>
+        <kendo-chart-category-axis>
+          <kendo-chart-category-axis-item
+            [majorGridLines]="hidden"
+            [minorGridLines]="hidden"
+          >
+          </kendo-chart-category-axis-item>
+        </kendo-chart-category-axis>
+        <kendo-chart-value-axis>
+          <kendo-chart-value-axis-item
+            [majorGridLines]="hidden"
+            [minorTicks]="hidden"
+            [min]="-10"
+            [max]="45"
+            [plotBands]="tempPlotBands"
+          >
+          </kendo-chart-value-axis-item>
+        </kendo-chart-value-axis>
+      </kendo-chart-series>
+      <kendo-chart-tooltip>
+        <ng-template kendoChartSeriesTooltipTemplate let-value="value">
+          Maximum: {{ value.target }} <br />
+          Average: {{ value.current }}
+        </ng-template>
+      </kendo-chart-tooltip>
+    </kendo-chart>
+
+    <kendo-chart style="height: 120px;">
+      <kendo-chart-title text="Humidity [%]"></kendo-chart-title>
+      <kendo-chart-series>
+        <kendo-chart-series-item type="bullet" [data]="hum" color="#0058e9">
+        </kendo-chart-series-item>
+        <kendo-chart-category-axis>
+          <kendo-chart-category-axis-item
+            [majorGridLines]="hidden"
+            [minorGridLines]="hidden"
+          >
+          </kendo-chart-category-axis-item>
+        </kendo-chart-category-axis>
+        <kendo-chart-value-axis>
+          <kendo-chart-value-axis-item
+            [majorGridLines]="hidden"
+            [minorTicks]="hidden"
+            [min]="0"
+            [max]="100"
+            [plotBands]="humPlotBands"
+          >
+          </kendo-chart-value-axis-item>
+        </kendo-chart-value-axis>
+      </kendo-chart-series>
+      <kendo-chart-tooltip>
+        <ng-template kendoChartSeriesTooltipTemplate let-value="value">
+          Maximum: {{ value.target }} <br />
+          Average: {{ value.current }}
+        </ng-template>
+      </kendo-chart-tooltip>
+    </kendo-chart>
+
+    <kendo-chart style="height: 120px;">
+      <kendo-chart-title text="Atmospheric pressure [mmHg]"></kendo-chart-title>
+      <kendo-chart-series>
+        <kendo-chart-series-item type="bullet" [data]="[this.dataSource1b,this.AltiMakineToplamKesimSnb]" color="#111">
+        </kendo-chart-series-item>
+        <kendo-chart-category-axis>
+          <kendo-chart-category-axis-item
+            [majorGridLines]="hidden"
+            [minorGridLines]="hidden"
+          >
+          </kendo-chart-category-axis-item>
+        </kendo-chart-category-axis>
+        <kendo-chart-value-axis>
+          <kendo-chart-value-axis-item
+            [majorGridLines]="hidden"
+            [minorTicks]="hidden"
+            [min]="this.AltiMakineToplamKesimSnb-1500"
+            [max]="this.AltiMakineToplamKesimSnb+500"
+            [plotBands]="mmhgPlotBands"
+          >
+          </kendo-chart-value-axis-item>
+        </kendo-chart-value-axis>
+      </kendo-chart-series>
+      <kendo-chart-tooltip>
+        <ng-template kendoChartSeriesTooltipTemplate let-value="value">
+          Maximum: {{ value.target }} <br />
+          Average: {{ value.current }}
+        </ng-template>
+      </kendo-chart-tooltip>
+    </kendo-chart>
+
+  </div>
+  </div>
+

@@ -78,7 +78,7 @@ declare var $: any
 
 export class AppComponent {
     
-    public selected = 'Avatar';
+    public selected = 'Nukon';
 
     public items: Array<{text: string, icon: string, selected?: boolean} | {separator: boolean}> = [
         { text: 'Nukon', icon: 'k-i-user', selected: true },

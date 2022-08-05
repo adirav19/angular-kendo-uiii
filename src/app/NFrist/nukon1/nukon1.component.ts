@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SeriesLabelsContentArgs } from '@progress/kendo-angular-charts';
+import { PlotBand, SeriesLabelsContentArgs } from '@progress/kendo-angular-charts';
 import { parseNumber } from '@progress/kendo-intl';
 import { suretut } from 'src/app/entities/suretut';
 import { HttpClientService } from 'src/app/services/http-client.service';
@@ -27,6 +27,23 @@ export class Nukon1Component implements OnInit {
   donuticin
   yuzdelikicin
   Valuer// 100le çarpıp yüzdeyi buluyozz
+
+  //bulletler icin
+  dataSourceb//bu üst tablo için 
+  dataSource1b//bu donut için
+  dataSource2b
+  dataSource3b
+  dataSource4b
+  dataSource5b
+  dataSource6b
+
+  AltiMakineToplamKesimSnb
+  BuMakineOranıb
+
+  donuticinb
+  yuzdelikicinb
+  Valuerb// 100le çarpıp yüzdeyi buluyozz
+
    async ngOnInit() {
    /* this.httpClientService.get<makine[]>({
       controller:"WeatherForecast"
@@ -73,6 +90,22 @@ export class Nukon1Component implements OnInit {
     console.log(this.BuMakineOranı)
     this.donuticin = [{kind:"BütünMakineler",share:this.yuzdelikicin},{kind:"BuMakine",share:this.BuMakineOranı}];
     this.Valuer = ((parseFloat(this.BuMakineOranı))*100).toFixed(2) //virgülden sonra 2 basamak göster
+
+
+    //bulletler için
+    this.dataSourceb = allmakine
+    this.dataSource1b=allmakine1.filter(x=>x.finish).shift().finish
+    this.dataSource2b = allmakine2.filter(x=>x.finish).shift().finish
+    this.dataSource3b = allmakine3.filter(x=>x.finish).shift().finish
+    this.dataSource4b = allmakine4.filter(x=>x.finish).shift().finish
+    this.dataSource5b = allmakine5.filter(x=>x.finish).shift().finish
+    this.dataSource6b = allmakine6.filter(x=>x.finish).shift().finish
+
+    this.AltiMakineToplamKesimSnb = this.dataSource1b+this.dataSource2b+this.dataSource3b+this.dataSource4b+this.dataSource5b+this.dataSource6b
+    this.BuMakineOranıb = this.dataSource1b/this.AltiMakineToplamKesimSnb
+    this.yuzdelikicinb=1-this.BuMakineOranıb
+    //this.donuticin = [{kind:"BütünMakineler",share:this.yuzdelikicin},{kind:"BuMakine",share:this.BuMakineOranı}];
+    //this.Valuer = ((parseFloat(this.BuMakineOranı))*100).toFixed(2)
   }
 
    
@@ -80,7 +113,9 @@ export class Nukon1Component implements OnInit {
   //buraya çözüm bulamadım böyle kaldı
   public series_kesim  = [
     {
-      name: "kesim" 
+      name: "kesim" ,
+      color:"#198754"
+
     },
   ];
   public series_erisimsiz  = [
@@ -96,6 +131,11 @@ export class Nukon1Component implements OnInit {
   public series_aktif = [
     {
       name: "aktif"
+    }
+  ];
+  public series_finish = [
+    {
+      name: "finish"
     }
   ];
     /*{
@@ -121,6 +161,63 @@ export class Nukon1Component implements OnInit {
     return e.category;
   }
 
-  
+  public hidden: { visible: boolean } = { visible: false };
+  public tempPlotBands: PlotBand[] = [
+    {
+      from: 30,
+      to: 45,
+      color: "#e62325",
+      opacity: 1,
+    },
+    {
+      from: 15,
+      to: 30,
+      color: "#ffc000",
+      opacity: 1,
+    },
+    {
+      from: 0,
+      to: 15,
+      color: "#37b400",
+      opacity: 1,
+    },
+    {
+      from: -10,
+      to: 0,
+      color: "#5392ff",
+      opacity: 1,
+    },
+  ];
+  public humPlotBands: PlotBand[] = [
+    {
+      from: 0,
+      to: 33,
+      color: "#ccc",
+      opacity: 0.6,
+    },
+    {
+      from: 33,
+      to: 66,
+      color: "#ccc",
+      opacity: 0.3,
+    },
+  ];
+  public mmhgPlotBands: PlotBand[] = [
+    {
+      from: 715,
+      to: 1200,
+      color: "#ccc",
+      opacity: 0.6,
+    },
+    {
+      from: 1200,
+      to: 1600,
+      color: "#ccc",
+      opacity: 0.3,
+    },
+  ];
+  public temp = [[25, 22]];
+  public hum = [[45, 60]];
+  public mmhg = [[750, 762]];
 
 }

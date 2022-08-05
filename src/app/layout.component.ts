@@ -6,10 +6,10 @@ import { OkumaServisi } from './services/okumaservisi';
     selector: 'layout-component',
     template: `
         <div class="header">
-            <h5>{{ selectedItem }} component</h5>
+            
         </div>
 
-        <div class="content" id="Avatar" *ngIf="selectedItem === 'Avatar'">
+        <div class="content" id="Nukon" *ngIf="selectedItem === 'Nukon'">
            
            <!-- <app-test></app-test> klasik kullanmaya gerek yok -->
            <!--<app-test6></app-test6>-->

@@ -1,13 +1,12 @@
-import { Component } from "@angular/core";
+import {  AfterViewInit, Component, OnDestroy, OnInit } from "@angular/core";
 
-import { mockData, CovidData } from "./covid-data";
 import { SelectEvent } from '@progress/kendo-angular-layout';
 
 @Component({
   selector: "app-test",
   template: `
     <kendo-tabstrip (tabSelect)="onTabSelect($event)">
-            <kendo-tabstrip-tab title="Nukon 4 KW 3M" [selected]="true">
+            <kendo-tabstrip-tab title="Nukon 4 KW 3M" *ngIf="test == 0"  [selected]="true">
                 <ng-template kendoTabContent>
 
 
@@ -16,7 +15,7 @@ import { SelectEvent } from '@progress/kendo-angular-layout';
 
                 </ng-template>
             </kendo-tabstrip-tab>
-            <kendo-tabstrip-tab title="Nukon 6 KW 6M">
+            <kendo-tabstrip-tab title="Nukon 6 KW 6M" *ngIf="test == 1" [selected]="true">
                 <ng-template kendoTabContent>
 
 
@@ -25,7 +24,7 @@ import { SelectEvent } from '@progress/kendo-angular-layout';
 
                 </ng-template>
             </kendo-tabstrip-tab>
-            <kendo-tabstrip-tab title="Nukon 12 KW 6M">
+            <kendo-tabstrip-tab title="Nukon 12 KW 6M" *ngIf="test == 2" [selected]="true">
                 <ng-template kendoTabContent>
 
 
@@ -34,7 +33,7 @@ import { SelectEvent } from '@progress/kendo-angular-layout';
 
                 </ng-template>
             </kendo-tabstrip-tab>
-            <kendo-tabstrip-tab title="Nukon 12 KW 3M" [disabled]="false" >
+            <kendo-tabstrip-tab title="Nukon 12 KW 3M" [disabled]="false" *ngIf="test == 3" [selected]="true" >
                 <ng-template kendoTabContent>
                 
 
@@ -43,7 +42,7 @@ import { SelectEvent } from '@progress/kendo-angular-layout';
 
                 </ng-template>
             </kendo-tabstrip-tab>
-            <kendo-tabstrip-tab title="Nukon Rex 4KW" [disabled]="false" >
+            <kendo-tabstrip-tab title="Nukon Rex 4KW" [disabled]="false" *ngIf="test == 4" [selected]="true">
                 <ng-template kendoTabContent>
 
 
@@ -52,7 +51,7 @@ import { SelectEvent } from '@progress/kendo-angular-layout';
 
                 </ng-template>
             </kendo-tabstrip-tab>
-            <kendo-tabstrip-tab title="Nukon 8KW Extreme 5 Eksen" [disabled]="false" >
+            <kendo-tabstrip-tab title="Nukon 8KW Extreme 5 Eksen" [disabled]="false" *ngIf="test == 5" [selected]="true" id="10">
                 <ng-template kendoTabContent>
 
 
@@ -62,6 +61,7 @@ import { SelectEvent } from '@progress/kendo-angular-layout';
                 </ng-template>
             </kendo-tabstrip-tab>
         </kendo-tabstrip>
+        <app-nukon1></app-nukon1>
     `,
     styles: [`
     kendo-tabstrip p {
@@ -70,9 +70,36 @@ import { SelectEvent } from '@progress/kendo-angular-layout';
     }
     `],
 })
-export class TestComponent {
-  public onTabSelect(e: SelectEvent): void {
-      console.log(e);
-      
-  }
+export class TestComponent implements OnDestroy,AfterViewInit{
+    public selected = 0;
+    public selectedd = 0;
+    public test = 0;
+    private interval;
+    
+    public onTabSelect(e:SelectEvent): void {
+       
+    }
+  constructor()
+{  this.interval =  setInterval(() => {
+            
+    if(this.selected >=0){
+      this.test++
+      if(this.test == 5){
+          this.test=0
+      }
+    }
+    
+    
+    console.log(this.test)
+  }, 9000); }
+    public ngAfterViewInit(): void {
+     
+    }
+    public ngOnDestroy(): void {
+        clearInterval(this.interval);
+    }
+    
+
+  
+ 
 }

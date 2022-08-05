@@ -8,7 +8,7 @@ import { SelectEvent } from '@progress/kendo-angular-layout';
   template: `
   <div>app-test3</div>
   <kendo-tabstrip (tabSelect)="onTabSelect($event)"  >
-            <kendo-tabstrip-tab title="Nukon 4 KW 3M"  [selected]="true">
+            <kendo-tabstrip-tab title="Nukon 4 KW 3M" *ngIf="test == 0"  [selected]="true" >
                 <ng-template kendoTabContent ]
                 >
 
@@ -19,7 +19,7 @@ import { SelectEvent } from '@progress/kendo-angular-layout';
 
                 </ng-template>
             </kendo-tabstrip-tab>
-            <kendo-tabstrip-tab title="Nukon 6 KW 6M">
+            <kendo-tabstrip-tab title="Nukon 6 KW 6M" *ngIf="test == 1"  [selected]="true">
                 <ng-template kendoTabContent>
 
 
@@ -28,7 +28,7 @@ import { SelectEvent } from '@progress/kendo-angular-layout';
 
                 </ng-template>
             </kendo-tabstrip-tab>
-            <kendo-tabstrip-tab title="Nukon 12 KW 6M">
+            <kendo-tabstrip-tab title="Nukon 12 KW 6M" *ngIf="test == 2"  [selected]="true">
                 <ng-template kendoTabContent>
 
 
@@ -37,7 +37,7 @@ import { SelectEvent } from '@progress/kendo-angular-layout';
 
                 </ng-template>
             </kendo-tabstrip-tab>
-            <kendo-tabstrip-tab title="Nukon 12 KW 3M" [disabled]="false" >
+            <kendo-tabstrip-tab title="Nukon 12 KW 3M" [disabled]="false"  *ngIf="test == 3"  [selected]="true" >
                 <ng-template kendoTabContent>
                 
 
@@ -46,7 +46,7 @@ import { SelectEvent } from '@progress/kendo-angular-layout';
 
                 </ng-template>
             </kendo-tabstrip-tab>
-            <kendo-tabstrip-tab title="Nukon Rex 4KW" [disabled]="false" >
+            <kendo-tabstrip-tab title="Nukon Rex 4KW" [disabled]="false" *ngIf="test == 4"  [selected]="true">
                 <ng-template kendoTabContent>
 
 
@@ -55,7 +55,7 @@ import { SelectEvent } from '@progress/kendo-angular-layout';
 
                 </ng-template>
             </kendo-tabstrip-tab>
-            <kendo-tabstrip-tab title="Nukon 8KW Extreme 5 Eksen" [disabled]="false" >
+            <kendo-tabstrip-tab title="Nukon 8KW Extreme 5 Eksen" *ngIf="test == 5"  [selected]="true" >
                 <ng-template kendoTabContent>
 
 
@@ -74,27 +74,33 @@ import { SelectEvent } from '@progress/kendo-angular-layout';
     `],
 })
 export class Test3Component  {
- /*constructor(){}
-  public selectedd=0
-    public selected=0
-  ngAfterViewInit(): void {
-    setInterval(() => {
-            
-      if(this.selected == this.selectedd){
-        this.selected = this.selectedd+1
-        this.selectedd = this.selected
-        if(this.selected == 4){
-            this.selectedd = 0
-            this.selected= 0
-        }
-      }
-    }, 3000);
+  public selected = 0;
+  public selectedd = 0;
+  public test = 0;
+  
+  public onTabSelect(e:SelectEvent): void {
+     
   }
-  ngOnDestroy(): void {
-    throw new Error("Method not implemented.");
-  }*/
-  public onTabSelect(e: SelectEvent): void {
-      
-      console.log(e);
+
+  
+  constructor(){
+      setInterval(() => {
+          
+          if(this.selected >=0){
+            this.test++
+            if(this.test == 5){
+                this.test=0
+            }
+          }
+          
+          
+          console.log(this.test)
+        }, 9000); 
+
   }
+
+ngOnInit(): void {
+
+}
+
 }
